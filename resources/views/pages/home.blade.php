@@ -121,45 +121,47 @@
       <h2 class="mt-3 text-3xl md:text-5xl font-bold">Ce que nous faisons sur le terrain</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
-      @foreach([
-        ['title' => 'Formations',      'desc' => 'Ateliers sur la santé sexuelle, l\'hygiène et la confiance en soi.', 'img' => 'action-formation.jpg',      'icon' => 'graduation'],
-        ['title' => 'Campagnes',       'desc' => 'Sensibilisation communautaire dans les écoles et villages.',          'img' => 'action-campagne.jpg',       'icon' => 'megaphone'],
-        ['title' => 'Accompagnement',  'desc' => 'Écoute, mentorat et orientation personnalisée pour chaque jeune fille.','img' => 'action-accompagnement.jpg', 'icon' => 'heart'],
-      ] as $i => $action)
-        <article class="group bg-[var(--color-card)] rounded-3xl overflow-hidden border border-[var(--color-border)]
-                        shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all animate-fade-up"
-                 style="animation-delay: {{ $i * 120 }}ms">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="{{ asset('assets/images/' . $action['img']) }}"
-                 alt="{{ $action['title'] }}" loading="lazy"
-                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+<div class="grid md:grid-cols-3 gap-6">
+  @foreach([
+    ['title' => 'Formations',      'desc' => 'Ateliers sur la santé sexuelle, l\'hygiène et la confiance en soi.', 'img' => 'serviette_hygienique_3.jpeg',      'icon' => 'graduation'],
+    ['title' => 'Campagnes',       'desc' => 'Sensibilisation communautaire dans les écoles et villages.',          'img' => 'serviette_hygienique.jpg.jpeg',       'icon' => 'megaphone'],
+    ['title' => 'Accompagnement',  'desc' => 'Écoute, mentorat et orientation personnalisée pour chaque jeune fille.','img' => 'photo_de_groupe.jpg.jpeg', 'icon' => 'heart'],
+  ] as $i => $action)
+    <article class="group bg-[var(--color-card)] rounded-3xl overflow-hidden border border-[var(--color-border)]
+                    shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all animate-fade-up"
+             style="animation-delay: {{ $i * 120 }}ms">
+      <div class="aspect-[4/3] overflow-hidden">
+        <!-- Le chemin génère maintenant : public/images/serviette_hygienique_3.jpeg -->
+        <img src="{{ asset('images/' . $action['img']) }}"
+             alt="{{ $action['title'] }}" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      </div>
+      <div class="p-6">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="p-2 rounded-xl gradient-cta text-white">
+            @if($action['icon'] === 'graduation')
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            @elseif($action['icon'] === 'megaphone')
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+              </svg>
+            @else
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            @endif
           </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2.5 mb-3">
-              <div class="p-2 rounded-xl gradient-cta text-white">
-                @if($action['icon'] === 'graduation')
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                  </svg>
-                @elseif($action['icon'] === 'megaphone')
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M3 11l19-9-9 19-2-8-8-2z"/>
-                  </svg>
-                @else
-                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                @endif
-              </div>
-              <h3 class="font-display font-semibold text-xl">{{ $action['title'] }}</h3>
-            </div>
-            <p class="text-sm text-[var(--color-muted-foreground)] leading-relaxed">{{ $action['desc'] }}</p>
-          </div>
-        </article>
-      @endforeach
-    </div>
+          <h3 class="font-display font-semibold text-xl">{{ $action['title'] }}</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted-foreground)] leading-relaxed">{{ $action['desc'] }}</p>
+      </div>
+    </article>
+  @endforeach
+</div>
+
 
     <div class="text-center mt-10">
       <a href="{{ route('actions') }}"
