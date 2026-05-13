@@ -124,8 +124,8 @@
 <div class="grid md:grid-cols-3 gap-6">
   @foreach([
     ['title' => 'Formations',      'desc' => 'Ateliers sur la santé sexuelle, l\'hygiène et la confiance en soi.', 'img' => 'serviette_hygienique_3.jpeg',      'icon' => 'graduation'],
-    ['title' => 'Campagnes',       'desc' => 'Sensibilisation communautaire dans les écoles et villages.',          'img' => 'serviette_hygienique.jpg.jpeg',       'icon' => 'megaphone'],
-    ['title' => 'Accompagnement',  'desc' => 'Écoute, mentorat et orientation personnalisée pour chaque jeune fille.','img' => 'photo_de_groupe.jpg.jpeg', 'icon' => 'heart'],
+    ['title' => 'Campagnes',       'desc' => 'Sensibilisation communautaire dans les écoles et villages.',          'img' => 'serviette_hygienique.jpeg',       'icon' => 'megaphone'],
+    ['title' => 'Accompagnement',  'desc' => 'Écoute, mentorat et orientation personnalisée pour chaque jeune fille.','img' => 'photo_de_groupe.jpeg', 'icon' => 'heart'],
   ] as $i => $action)
     <article class="group bg-[var(--color-card)] rounded-3xl overflow-hidden border border-[var(--color-border)]
                     shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all animate-fade-up"
